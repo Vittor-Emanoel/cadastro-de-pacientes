@@ -5,14 +5,52 @@ var pacientes = document.querySelectorAll(".paciente");
 
 var botao = document.querySelector('#adicionar-paciente');
 
-botao.addEventListener('click',function(){
- console.log('add paciente');
+botao.addEventListener('click',function(event){
+event.preventDefault();
+  
+  var form = document.querySelector('#form-adiciona');
+
+ var formName = form.nome.value;
+ var formPeso = form.peso.value;
+ var formAltura = form.altura.value;
+ var formGordura = form.gordura.value;
+
+ //criar tabela no html com javascrit:
+
+ //criando a linha principal
+ var pacienteTr = document.createElement('tr');
+ //criando os espaços para os dados 
+ var nomeTd = document.createElement('td');
+ var pesoTd = document.createElement('td');
+ var alturaTd = document.createElement('td');
+ var gorduraTd = document.createElement('td');
+ var imcTd = document.createElement('td');
+
+ //pegando os espaços com dados adicionando a variavel com o valor dos dados digitados nos input.
+
+ nomeTd.textContent = formName;
+ pesoTd.textContent = formPeso;
+ alturaTd.textContent = formAltura;
+ gorduraTd.textContent = formGordura;
+
+ //passando todos os dados para a linha.
+ pacienteTr.appendChild(nomeTd);
+ pacienteTr.appendChild(pesoTd);
+ pacienteTr.appendChild(alturaTd);
+ pacienteTr.appendChild(gorduraTd);
+//selecionando os dados e adicionando na tabela
+
+var tabela = document.querySelector('#tabela-pacientes');
+//a tabela passa a receber os valores da linha
+tabela.appendChild(pacienteTr);
+
 });
 
 
 //ele só para quando for menor que 0 pacientes.
+// armazenando todos os paciente dentro de uma array. array pacientes e esse array está dentro da variavel paciente.
 for (let i = 0; i < pacientes.length; i++) {
-  var paciente = pacientes[i]; // armazenando todos os paciente dentro de uma array. array pacientes e esse array está dentro da variavel paciente.
+  var paciente = pacientes[i]; 
 
   var tdPeso = paciente.querySelector(".info-peso");
   var peso = tdPeso.textContent;
@@ -25,7 +63,7 @@ for (let i = 0; i < pacientes.length; i++) {
   var pesoEhValido = true;
   var AlturaEhValida = true;
 
-//Teste logica para saber se o peso e a altura são validas.
+//Teste logico para saber se o peso e a altura são validas.
 
 //adicionando estilos pela classe css. - alterando o aspecto visual.
 //tem duas formas de manipular os styles em Java script.
