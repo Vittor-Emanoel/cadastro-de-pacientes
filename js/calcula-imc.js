@@ -39,11 +39,18 @@ for (let i = 0; i < pacientes.length; i++) {
   //teste de validação logico para calcular ou não calcular o IMC
   //Não tem teste === pq ele já comeca como verdadeiro
   if (pesoEhValido && AlturaEhValida) {
-    var imc = peso / (altura * altura);
-    tdImc.textContent = imc.toFixed(2); //.toFixed limita as casas decimas
+    var imc = calculaImc(peso, altura);
+    tdImc.textContent = imc; 
   }
 }
 
+
+function calculaImc(peso, altura) {
+  var imc = 0; 
+  imc = peso / (altura * altura); 
+
+  return imc.toFixed(2);
+}
 /*
 ESSES SÃO OS DOIS JEITOS DE ADD EVENTOS
 

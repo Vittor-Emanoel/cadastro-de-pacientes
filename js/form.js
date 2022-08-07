@@ -4,10 +4,10 @@ botao.addEventListener("click", function (event) {
 
   var form = document.querySelector("#form-adiciona");
   //pegando os dados do form
-  var formName = form.nome.value;
-  var formPeso = form.peso.value;
-  var formAltura = form.altura.value;
-  var formGordura = form.gordura.value;
+  var nome = form.nome.value;
+  var peso = form.peso.value;
+  var altura = form.altura.value;
+  var gordura = form.gordura.value;
 
   //criar tabela no html com javascrit:
   var pacienteTr = document.createElement("tr");
@@ -21,16 +21,18 @@ botao.addEventListener("click", function (event) {
 
   //preenchendo os ts com os valores do form:
 
-  nomeTd.textContent = formName;
-  pesoTd.textContent = formPeso;
-  alturaTd.textContent = formAltura;
-  gorduraTd.textContent = formGordura;
-
+  nomeTd.textContent = nome;
+  pesoTd.textContent = peso;
+  alturaTd.textContent = altura;
+  gorduraTd.textContent = gordura;
+  imcTd.textContent = calculaImc(peso, altura);
   //colocando os tds dentro do tr:
   pacienteTr.appendChild(nomeTd);
   pacienteTr.appendChild(pesoTd);
   pacienteTr.appendChild(alturaTd);
   pacienteTr.appendChild(gorduraTd);
+  pacienteTr.appendChild(imcTd);
+
 
   //trazendo o tr para dentro da tabela:
   var tabela = document.querySelector("#tabela-pacientes");
