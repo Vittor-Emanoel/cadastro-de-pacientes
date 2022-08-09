@@ -5,6 +5,7 @@
     <title>Aparecida Nutrição</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
   <body>
@@ -16,6 +17,9 @@
     <main>
       <section class="container">
         <h2>Meus pacientes</h2>
+        <label for="filtrar-tabela">Filtre: </label>
+        <input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do paciente">
+       
         <table>
           <thead>
             <tr>
@@ -68,8 +72,19 @@
           </tbody>
         </table>
       </section>
+      
       <section class="container">
+        <span id="erro-ajax" class="invisivel"> Erro ao Buscar os pacientes!</span>
+        <button id="buscar-paciente" class="botao bto-principal">
+          Buscar Pacientes
+        </button>
         <h2 id="titulo-form">Adicionar novo paciente</h2>
+        <ul id="mensagem-erro">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
         <form id="form-adiciona">
           <div class="">
             <label for="nome">Nome:</label>
@@ -123,5 +138,7 @@
     <script src="js/calcula-imc.js"></script>
     <script src="js/form.js"></script>
     <script src="js/remover-paciente.js"></script>
+    <script src="js/filtra.js"></script>
+    <script src="js/buscar-paciente.js"></script>
   </body>
 </html>

@@ -139,3 +139,18 @@ button[disabled=disabled], button:disabled {
 	opacity: 0;
 	transition: 0.5s;
 }
+#filtrar-tabela {
+	width: 220px;
+	height: 35px;
+	margin-bottom: 10px;
+}
+.esconder {
+	display: none;
+}
+#mensagem-erro {
+	color: red;
+}
+
+.invisivel {
+	display: none;
+}
